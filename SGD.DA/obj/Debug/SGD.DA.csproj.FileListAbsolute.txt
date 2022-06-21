@@ -1,0 +1,26 @@
+C:\CASA\Fuentes\SGD\SGD.DA\bin\Debug\SGD.DA.dll
+C:\CASA\Fuentes\SGD\SGD.DA\bin\Debug\SGD.DA.pdb
+C:\CASA\Fuentes\SGD\SGD.DA\bin\Debug\SGD.BE.dll
+C:\CASA\Fuentes\SGD\SGD.DA\bin\Debug\SGD.Util.dll
+C:\CASA\Fuentes\SGD\SGD.DA\bin\Debug\SGD.BE.pdb
+C:\CASA\Fuentes\SGD\SGD.DA\bin\Debug\SGD.Util.pdb
+C:\CASA\Fuentes\SGD\SGD.DA\obj\Debug\SGD.DA.csproj.AssemblyReference.cache
+C:\CASA\Fuentes\SGD\SGD.DA\obj\Debug\SGD.DA.csproj.CoreCompileInputs.cache
+C:\CASA\Fuentes\SGD\SGD.DA\obj\Debug\SGD.DA.csproj.CopyComplete
+C:\CASA\Fuentes\SGD\SGD.DA\obj\Debug\SGD.DA.dll
+C:\CASA\Fuentes\SGD\SGD.DA\obj\Debug\SGD.DA.pdb
+C:\CASA\Fuentes\SGD\SGD.DA\bin\Debug\Newtonsoft.Json.dll
+C:\CASA\Fuentes\SGD\SGD.DA\bin\Debug\Newtonsoft.Json.xml
+C:\CASA\Fuentes\SGD\.NET\Web - WebAdmin - WebApi - WebApiAdmin\SGD.DA\bin\Debug\SGD.DA.dll
+C:\CASA\Fuentes\SGD\.NET\Web - WebAdmin - WebApi - WebApiAdmin\SGD.DA\bin\Debug\SGD.DA.pdb
+C:\CASA\Fuentes\SGD\.NET\Web - WebAdmin - WebApi - WebApiAdmin\SGD.DA\bin\Debug\SGD.BE.dll
+C:\CASA\Fuentes\SGD\.NET\Web - WebAdmin - WebApi - WebApiAdmin\SGD.DA\bin\Debug\SGD.Util.dll
+C:\CASA\Fuentes\SGD\.NET\Web - WebAdmin - WebApi - WebApiAdmin\SGD.DA\bin\Debug\Newtonsoft.Json.dll
+C:\CASA\Fuentes\SGD\.NET\Web - WebAdmin - WebApi - WebApiAdmin\SGD.DA\bin\Debug\SGD.BE.pdb
+C:\CASA\Fuentes\SGD\.NET\Web - WebAdmin - WebApi - WebApiAdmin\SGD.DA\bin\Debug\SGD.Util.pdb
+C:\CASA\Fuentes\SGD\.NET\Web - WebAdmin - WebApi - WebApiAdmin\SGD.DA\bin\Debug\Newtonsoft.Json.xml
+C:\CASA\Fuentes\SGD\.NET\Web - WebAdmin - WebApi - WebApiAdmin\SGD.DA\obj\Debug\SGD.DA.csproj.AssemblyReference.cache
+C:\CASA\Fuentes\SGD\.NET\Web - WebAdmin - WebApi - WebApiAdmin\SGD.DA\obj\Debug\SGD.DA.csproj.CoreCompileInputs.cache
+C:\CASA\Fuentes\SGD\.NET\Web - WebAdmin - WebApi - WebApiAdmin\SGD.DA\obj\Debug\SGD.DA.csproj.CopyComplete
+C:\CASA\Fuentes\SGD\.NET\Web - WebAdmin - WebApi - WebApiAdmin\SGD.DA\obj\Debug\SGD.DA.dll
+C:\CASA\Fuentes\SGD\.NET\Web - WebAdmin - WebApi - WebApiAdmin\SGD.DA\obj\Debug\SGD.DA.pdb

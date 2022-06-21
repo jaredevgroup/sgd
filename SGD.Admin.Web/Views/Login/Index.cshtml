@@ -1,0 +1,87 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="es-pe">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login | SGD</title>
+    <link rel="stylesheet" href="@Url.Content("~/Assets/dist/css/alt/adminlte.fonts.source-sans-pro.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Assets/plugins/fontawesome-free/css/all.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Assets/dist/css/adminlte.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Assets/dist/css/adminlte-custom.css")">
+</head>
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <div class="card card-outline card-primary">
+            <div class="card-body">
+                <div class="text-center">
+                    <img class="profile-user-img profile-user-img-lg border-0" src="@Url.Content("~/Assets/dist/img/SGDLogo.png")" />
+                </div>
+                <p class="login-box-msg">Ingresa tus credenciales</p>
+                <form id="frm-login" action="@Url.Action("autenticar", "login")" method="post" autocomplete="off">
+                    <div class="form-group">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <span class="fas fa-user"></span>
+                                </div>
+                            </div>
+                            <input type="text" name="usuario" id="txt-usuario" class="form-control" placeholder="Usuario">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <span class="fas fa-lock"></span>
+                                </div>
+                            </div>
+                            <input type="password" name="contraseña" id="txt-contraseña" class="form-control" placeholder="Contraseña">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="icheck-primary">
+                                <input type="checkbox" id="chk-recordar">
+                                <label for="chk-recordar">
+                                    Recordar
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-primary btn-block">Acceder</button>
+                        </div>
+                    </div>
+                </form>
+                <p class="mb-1">
+                    <a href="@Url.Action("recuperar-contraseña", "login")">¿Olvidaste tu contraseña?</a>
+                </p>
+            </div>
+        </div>
+        @if (TempData["login-message-error"] != null)
+        {
+            <br />
+            <div class="alert alert-danger text-center">@TempData["login-message-error"].ToString()</div>
+        }
+        @if (TempData["login-message-success"] != null)
+        {
+            <br />
+            <div class="alert alert-success text-center">@TempData["login-message-success"].ToString()</div>
+        }
+    </div>
+    <script src="@Url.Content("~/Assets/plugins/jquery/jquery.min.js")"></script>
+    <script src="@Url.Content("~/Assets/plugins/bootstrap/js/bootstrap.bundle.min.js")"></script>
+    <script src="@Url.Content("~/Assets/plugins/jquery-validation/jquery.validate.min.js")"></script>
+    <script src="@Url.Content("~/Assets/plugins/jquery-validation/additional-methods.min.js")"></script>
+    <script src="@Url.Content("~/Assets/dist/js/adminlte.min.js")"></script>
+    <script src="@Url.Content("~/Assets/dist/js/pages/login.js")"></script>
+    <script>
+        $(function () {
+            loginPage.init();
+        });
+    </script>
+</body>
+</html>

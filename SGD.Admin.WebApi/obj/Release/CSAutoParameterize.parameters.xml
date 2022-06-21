@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="test-Web.config Connection String" description="test Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="Data Source=172.107.175.145; Initial Catalog=dbSGD; User Id=sa; Password=abcDEF123*" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\CASA\\Fuentes\\SGD\\\.NET\\Web\ -\ WebAdmin\ -\ WebApi\ -\ WebApiAdmin\\SGD\.Admin\.WebApi\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='test']/@connectionString" />
+  </parameter>
+</parameters>

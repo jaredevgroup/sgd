@@ -1,0 +1,60 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="es-pe">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Recuperar contraseña | SGD</title>
+
+    <link rel="stylesheet" href="@Url.Content("~/Assets/dist/css/alt/adminlte.fonts.source-sans-pro.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Assets/plugins/fontawesome-free/css/all.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Assets/dist/css/adminlte.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Assets/dist/css/adminlte-custom.css")">
+</head>
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <div class="card card-outline card-primary">
+            <div class="card-body">
+                <div class="text-center">
+                    <img class="profile-user-img profile-user-img-lg border-0" src="@Url.Content("~/Assets/dist/img/SGDLogo.png")" />
+                </div>
+                <p class="login-box-msg">¿Olvidaste tu contraseña? Aquí puede recuperar fácilmente una nueva contraseña.</p>
+                <form id="frm-recuperar-contraseña" action="@Url.Action("enviar-correo-recuperacion-contraseña", "login")" method="post" autocomplete="off">
+                    <div class="form-group">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <span class="fas fa-envelope"></span>
+                                </div>
+                            </div>
+                            <input type="text" name="correo" id="txt-correo" class="form-control" placeholder="Correo electrónico">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary btn-block">Enviar correo de recuperación</button>
+                        </div>
+                    </div>
+                </form>
+                <p class="mt-3 mb-1">
+                    <a href="@Url.Action("", "login")">Ingresar</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="@Url.Content("~/Assets/plugins/jquery/jquery.min.js")"></script>
+    <script src="@Url.Content("~/Assets/plugins/bootstrap/js/bootstrap.bundle.min.js")"></script>
+    <script src="@Url.Content("~/Assets/plugins/jquery-validation/jquery.validate.min.js")"></script>
+    <script src="@Url.Content("~/Assets/plugins/jquery-validation/additional-methods.min.js")"></script>
+    <script src="@Url.Content("~/Assets/dist/js/adminlte.min.js")"></script>
+    <script src="@Url.Content("~/Assets/dist/js/pages/recuperar-contraseña.js")"></script>
+    <script>
+        $(function () {
+            recuperarContraseñaPage.init();
+        });
+    </script>
+</body>
+</html>

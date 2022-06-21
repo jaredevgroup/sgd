@@ -1,0 +1,22 @@
+C:\CASA\Fuentes\SGD\SGD.BE\bin\Release\SGD.BE.dll
+C:\CASA\Fuentes\SGD\SGD.BE\bin\Release\SGD.BE.pdb
+C:\CASA\Fuentes\SGD\SGD.BE\bin\Release\Newtonsoft.Json.dll
+C:\CASA\Fuentes\SGD\SGD.BE\bin\Release\SGD.Util.dll
+C:\CASA\Fuentes\SGD\SGD.BE\bin\Release\SGD.Util.pdb
+C:\CASA\Fuentes\SGD\SGD.BE\bin\Release\Newtonsoft.Json.xml
+C:\CASA\Fuentes\SGD\SGD.BE\obj\Release\SGD.BE.csproj.AssemblyReference.cache
+C:\CASA\Fuentes\SGD\SGD.BE\obj\Release\SGD.BE.csproj.CoreCompileInputs.cache
+C:\CASA\Fuentes\SGD\SGD.BE\obj\Release\SGD.BE.csproj.CopyComplete
+C:\CASA\Fuentes\SGD\SGD.BE\obj\Release\SGD.BE.dll
+C:\CASA\Fuentes\SGD\SGD.BE\obj\Release\SGD.BE.pdb
+C:\CASA\Fuentes\SGD\.NET\Web - WebAdmin - WebApi - WebApiAdmin\SGD.BE\bin\Release\SGD.BE.dll
+C:\CASA\Fuentes\SGD\.NET\Web - WebAdmin - WebApi - WebApiAdmin\SGD.BE\bin\Release\SGD.BE.pdb
+C:\CASA\Fuentes\SGD\.NET\Web - WebAdmin - WebApi - WebApiAdmin\SGD.BE\bin\Release\Newtonsoft.Json.dll
+C:\CASA\Fuentes\SGD\.NET\Web - WebAdmin - WebApi - WebApiAdmin\SGD.BE\bin\Release\SGD.Util.dll
+C:\CASA\Fuentes\SGD\.NET\Web - WebAdmin - WebApi - WebApiAdmin\SGD.BE\bin\Release\SGD.Util.pdb
+C:\CASA\Fuentes\SGD\.NET\Web - WebAdmin - WebApi - WebApiAdmin\SGD.BE\bin\Release\Newtonsoft.Json.xml
+C:\CASA\Fuentes\SGD\.NET\Web - WebAdmin - WebApi - WebApiAdmin\SGD.BE\obj\Release\SGD.BE.csproj.AssemblyReference.cache
+C:\CASA\Fuentes\SGD\.NET\Web - WebAdmin - WebApi - WebApiAdmin\SGD.BE\obj\Release\SGD.BE.csproj.CoreCompileInputs.cache
+C:\CASA\Fuentes\SGD\.NET\Web - WebAdmin - WebApi - WebApiAdmin\SGD.BE\obj\Release\SGD.BE.csproj.CopyComplete
+C:\CASA\Fuentes\SGD\.NET\Web - WebAdmin - WebApi - WebApiAdmin\SGD.BE\obj\Release\SGD.BE.dll
+C:\CASA\Fuentes\SGD\.NET\Web - WebAdmin - WebApi - WebApiAdmin\SGD.BE\obj\Release\SGD.BE.pdb

@@ -1,0 +1,30 @@
+C:\CASA\Fuentes\SGD\SGD.BL\bin\Release\SGD.BL.dll
+C:\CASA\Fuentes\SGD\SGD.BL\bin\Release\SGD.BL.pdb
+C:\CASA\Fuentes\SGD\SGD.BL\bin\Release\SGD.BE.dll
+C:\CASA\Fuentes\SGD\SGD.BL\bin\Release\SGD.DA.dll
+C:\CASA\Fuentes\SGD\SGD.BL\bin\Release\SGD.Util.dll
+C:\CASA\Fuentes\SGD\SGD.BL\bin\Release\Newtonsoft.Json.dll
+C:\CASA\Fuentes\SGD\SGD.BL\bin\Release\SGD.BE.pdb
+C:\CASA\Fuentes\SGD\SGD.BL\bin\Release\SGD.DA.pdb
+C:\CASA\Fuentes\SGD\SGD.BL\bin\Release\SGD.Util.pdb
+C:\CASA\Fuentes\SGD\SGD.BL\bin\Release\Newtonsoft.Json.xml
+C:\CASA\Fuentes\SGD\SGD.BL\obj\Release\SGD.BL.csproj.AssemblyReference.cache
+C:\CASA\Fuentes\SGD\SGD.BL\obj\Release\SGD.BL.csproj.CoreCompileInputs.cache
+C:\CASA\Fuentes\SGD\SGD.BL\obj\Release\SGD.BL.csproj.CopyComplete
+C:\CASA\Fuentes\SGD\SGD.BL\obj\Release\SGD.BL.dll
+C:\CASA\Fuentes\SGD\SGD.BL\obj\Release\SGD.BL.pdb
+C:\CASA\Fuentes\SGD\.NET\Web - WebAdmin - WebApi - WebApiAdmin\SGD.BL\bin\Release\SGD.BL.dll
+C:\CASA\Fuentes\SGD\.NET\Web - WebAdmin - WebApi - WebApiAdmin\SGD.BL\bin\Release\SGD.BL.pdb
+C:\CASA\Fuentes\SGD\.NET\Web - WebAdmin - WebApi - WebApiAdmin\SGD.BL\bin\Release\SGD.BE.dll
+C:\CASA\Fuentes\SGD\.NET\Web - WebAdmin - WebApi - WebApiAdmin\SGD.BL\bin\Release\SGD.DA.dll
+C:\CASA\Fuentes\SGD\.NET\Web - WebAdmin - WebApi - WebApiAdmin\SGD.BL\bin\Release\SGD.Util.dll
+C:\CASA\Fuentes\SGD\.NET\Web - WebAdmin - WebApi - WebApiAdmin\SGD.BL\bin\Release\Newtonsoft.Json.dll
+C:\CASA\Fuentes\SGD\.NET\Web - WebAdmin - WebApi - WebApiAdmin\SGD.BL\bin\Release\SGD.BE.pdb
+C:\CASA\Fuentes\SGD\.NET\Web - WebAdmin - WebApi - WebApiAdmin\SGD.BL\bin\Release\SGD.DA.pdb
+C:\CASA\Fuentes\SGD\.NET\Web - WebAdmin - WebApi - WebApiAdmin\SGD.BL\bin\Release\SGD.Util.pdb
+C:\CASA\Fuentes\SGD\.NET\Web - WebAdmin - WebApi - WebApiAdmin\SGD.BL\bin\Release\Newtonsoft.Json.xml
+C:\CASA\Fuentes\SGD\.NET\Web - WebAdmin - WebApi - WebApiAdmin\SGD.BL\obj\Release\SGD.BL.csproj.AssemblyReference.cache
+C:\CASA\Fuentes\SGD\.NET\Web - WebAdmin - WebApi - WebApiAdmin\SGD.BL\obj\Release\SGD.BL.csproj.CoreCompileInputs.cache
+C:\CASA\Fuentes\SGD\.NET\Web - WebAdmin - WebApi - WebApiAdmin\SGD.BL\obj\Release\SGD.BL.csproj.CopyComplete
+C:\CASA\Fuentes\SGD\.NET\Web - WebAdmin - WebApi - WebApiAdmin\SGD.BL\obj\Release\SGD.BL.dll
+C:\CASA\Fuentes\SGD\.NET\Web - WebAdmin - WebApi - WebApiAdmin\SGD.BL\obj\Release\SGD.BL.pdb

@@ -1,0 +1,100 @@
+﻿@using SGD.Util
+@using SGD.BE
+@{ 
+    HttpCookie cookieCurrentSesion = HttpContext.Current.Request.Cookies.Get("currentSesion");
+    UsuarioSistemaBE usuarioSistemaBE = new UsuarioSistemaBE(cookieCurrentSesion.Value);
+}
+<!DOCTYPE html>
+<html lang="es-pe">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Titulo | SGD</title>
+    <link rel="stylesheet" href="@Url.Content("~/Assets/dist/css/alt/adminlte.fonts.source-sans-pro.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Assets/plugins/fontawesome-free/css/all.min.css")">
+    @RenderSection("links", false)
+    <link rel="stylesheet" href="@Url.Content("~/Assets/dist/css/adminlte.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Assets/dist/css/adminlte-custom.css")">
+</head>
+<body class="hold-transition sidebar-mini sidebar-collapse">
+    <div class="wrapper">
+        <div class="preloader flex-column justify-content-center align-items-center">
+            <img class="animation__shake" src="@Url.Content("~/Assets/dist/img/SGDLogo.png")">
+        </div>
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item" data-toggle="tooltip" title="Salir">
+                    <a class="nav-link bg-danger" href="@Url.Action("salir", "login")">
+                        <i class="fas fa-power-off"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <a href="@Url.Action("", "inicio")" class="brand-link" data-toggle="tooltip" title="Sistema de gestión deportiva">
+                <img src="@Url.Content("~/Assets/dist/img/SGDLogo.png")" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                <span class="brand-text font-weight-light">SGD</span>
+            </a>
+
+            <div class="sidebar">
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <img src="@Url.Content("~/Assets/dist/img/avatar5.png")" class="img-circle elevation-2" alt="User Image">
+                    </div>
+                    <div class="info">
+                        <span class="d-block text-white">@usuarioSistemaBE.UsuarioId</span>
+                        @*<a href="#" class="d-block">@usuarioSistemaBE.UsuarioId</a>*@
+                    </div>
+                </div>
+
+                @Html.Partial("_Menu", usuarioSistemaBE.ListaMenuSistema);
+                
+            </div>
+        </aside>
+
+        <div class="content-wrapper">
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1>@ViewBag.Titulo</h1>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content">
+                @RenderBody()
+            </section>
+        </div>
+
+        <footer class="main-footer">
+            <div class="float-right d-none d-sm-block">
+                <b>Version</b> 1.0.0
+            </div>
+            <strong>Copyright &copy; @(DateTime.Now.Year.ToString() == "2022" ? $"{DateTime.Now.Year}" : $"2022-{DateTime.Now.Year}") <a href="http://jarevgroup.com">jarevgroup.com</a>.</strong> Todos los derechos reservados.
+        </footer>
+
+    </div>
+    <script src="@Url.Content("~/Assets/plugins/jquery/jquery.min.js")"></script>
+    <script src="@Url.Content("~/Assets/plugins/bootstrap/js/bootstrap.bundle.min.js")"></script>
+    <script src="@Url.Content("~/Assets/dist/js/adminlte.js")"></script>
+    <script src="@Url.Content("~/Assets/dist/js/constantes.js")"></script>
+    <script src="@Url.Content("~/Assets/dist/js/funciones.js")"></script>
+    <script>
+        const urlBase = '@Url.Content("~")';
+        const urlBaseWebApi = "@(AppSettings.Get<string>("api.url"))";
+        const domainCookie = "@(AppSettings.Get<string>("cookie.domain"))";
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+    @RenderSection("scripts", false)
+</body>
+</html>

@@ -1,0 +1,62 @@
+﻿@using SGD.Util
+@{
+    bool esNuevo = ViewBag.TipoMantenimiento == (int)Enumeracion.TipoMantenimiento.Nuevo;
+    ViewBag.Titulo = esNuevo ? "Nuevo Usuario" : "Editar Usuario";
+}
+
+<div class="card card-secondary">
+    <div class="card-header">
+        <h3 class="card-title text-bold">Datos del usuario</h3>
+    </div>
+    <div class="card-body">
+        <form id="frm-registro" novalidate autocomplete="off">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label for="txt-id">ID</label>
+                        <input type="text" name="id" id="txt-id" class="form-control" placeholder="ID" @(esNuevo ? "" : "disabled")>
+                    </div>
+                </div>
+                @if (esNuevo)
+                {
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label for="txt-contraseña">Contraseña</label>
+                            <input type="password" name="contraseña" id="txt-contraseña" class="form-control" placeholder="Contraseña">
+                        </div>
+                    </div>
+                }
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label for="txt-correo">Correo</label>
+                        <input type="text" name="correo" id="txt-correo" class="form-control" placeholder="Correo">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="card-footer text-right">
+        <button type="submit" id="btn-guardar" form="frm-registro" class="btn btn-primary">Guardar</button>
+        <button type="button" id="btn-cancelar" class="btn btn-danger">Cancelar</button>
+    </div>
+</div>
+
+@section links{
+    <link rel="stylesheet" href="@Url.Content("~/Assets/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css")">
+}
+
+@section scripts{
+    <script src="@Url.Content("~/Assets/plugins/jquery-validation/jquery.validate.min.js")"></script>
+    <script src="@Url.Content("~/Assets/plugins/jquery-validation/additional-methods.min.js")"></script>
+    <script src="@Url.Content("~/Assets/plugins/sweetalert2/sweetalert2.min.js")"></script>
+    <script src="@Url.Content("~/Assets/dist/js/pages/mantenimiento-usuario.js")"></script>
+    <script>
+        const tipoMantenimiento = @(ViewBag.TipoMantenimiento);
+        const nuevoTipoMantenimiento = @((int)Enumeracion.TipoMantenimiento.Nuevo);
+        const editarTipoMantenimiento = @((int)Enumeracion.TipoMantenimiento.Editar);
+        const usuarioId = @(Request.RequestContext.RouteData.Values["id"] != null ? Request.RequestContext.RouteData.Values["id"].ToString() : "null");
+        $(function () {
+            usuarioMantenimientoPage.init();
+        });
+    </script>
+}

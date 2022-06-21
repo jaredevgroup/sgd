@@ -1,0 +1,160 @@
+﻿@using SGD.Util
+@{
+    bool esNuevo = ViewBag.TipoMantenimiento == (int)Enumeracion.TipoMantenimiento.Nuevo;
+    ViewBag.Titulo = esNuevo ? "Nuevo Entidad Deportiva" : "Editar Entidad Deportiva";
+}
+
+<div class="card card-secondary card-tabs">
+    <div class="card-header p-0 pt-1">
+        <ul class="nav nav-tabs" id="tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="tab-general" data-toggle="pill" href="#tab-general-content" role="tab" aria-controls="tab-general-content" aria-selected="true">General</a>
+            </li>
+            <li class="nav-item@(esNuevo ? " d-none" : "")">
+                <a class="nav-link" id="tab-menu" data-toggle="pill" href="#tab-menu-content" role="tab" aria-controls="tab-menu-content" aria-selected="false">Menús</a>
+            </li>
+            <li class="nav-item@(esNuevo ? " d-none" : "")">
+                <a class="nav-link" id="tab-perfil" data-toggle="pill" href="#tab-perfil-content" role="tab" aria-controls="tab-perfil-content" aria-selected="false">Perfiles</a>
+            </li>
+            <li class="nav-item@(esNuevo ? " d-none" : "")">
+                <a class="nav-link" id="tab-usuario" data-toggle="pill" href="#tab-usuario-content" role="tab" aria-controls="tab-usuario-content" aria-selected="false">Usuarios</a>
+            </li>
+        </ul>
+        @*<h3 class="card-title text-bold">Datos de la entidad deportiva</h3>*@
+    </div>
+    <div class="card-body">
+        <div class="tab-content" id="tabs-content">
+            <div class="tab-pane fade show active" id="tab-general-content" role="tabpanel" aria-labelledby="tab-general">
+                <form id="frm-registro" novalidate autocomplete="off">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="txt-codigo">Código</label>
+                                <input type="text" name="codigo" id="txt-codigo" class="form-control" placeholder="Código">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="txt-correo">Nombre</label>
+                                <input type="text" name="nombre" id="txt-nombre" class="form-control" placeholder="Nombre">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row text-right">
+                        <div class="col-sm-12">
+                            <button type="submit" id="btn-guardar" form="frm-registro" class="btn btn-primary">Guardar</button>
+                            <button type="button" id="btn-cancelar" class="btn btn-danger">Cancelar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="tab-pane fade@(esNuevo ? " d-none" : "")" id="tab-menu-content" role="tabpanel" aria-labelledby="tab-menu">
+                <form id="frm-registro-menu" novalidate autocomplete="off">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="txt-filtro-usuario-nombre">Nombre</label>
+                                <input type="text" name="filtro-usuario-nombre" id="txt-filtro-usuario-nombre" class="form-control" placeholder="Nombre">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="txt-filtro-usuario-correo">Correo</label>
+                                <input type="text" name="filtro-usuario-correo" id="txt-filtro-usuario-correo" class="form-control" placeholder="Correo">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 text-right">
+                            <a href="javascript:void(0)" id="btn-nuevo-usuario" class="btn btn-primary">Nuevo</a>
+                            <button type="button" id="btn-buscar-usuario" class="btn btn-secondary">Buscar</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table id="tbl-resultados-usuario" class="table table-striped table-bordered table-sm"></table>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="tab-pane fade@(esNuevo ? " d-none" : "")" id="tab-perfil-content" role="tabpanel" aria-labelledby="tab-perfil">
+                <form id="frm-registro-perfil" novalidate autocomplete="off">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="txt-filtro-usuario-nombre">Nombre</label>
+                                <input type="text" name="filtro-usuario-nombre" id="txt-filtro-usuario-nombre" class="form-control" placeholder="Nombre">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="txt-filtro-usuario-correo">Correo</label>
+                                <input type="text" name="filtro-usuario-correo" id="txt-filtro-usuario-correo" class="form-control" placeholder="Correo">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 text-right">
+                            <a href="javascript:void(0)" id="btn-nuevo-usuario" class="btn btn-primary">Nuevo</a>
+                            <button type="button" id="btn-buscar-usuario" class="btn btn-secondary">Buscar</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table id="tbl-resultados-usuario" class="table table-striped table-bordered table-sm"></table>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="tab-pane fade@(esNuevo ? " d-none" : "")" id="tab-usuario-content" role="tabpanel" aria-labelledby="tab-usuario">
+                <form id="frm-registro-usuario" novalidate autocomplete="off">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="txt-filtro-usuario-nombre">Nombre</label>
+                                <input type="text" name="filtro-usuario-nombre" id="txt-filtro-usuario-nombre" class="form-control" placeholder="Nombre">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="txt-filtro-usuario-correo">Correo</label>
+                                <input type="text" name="filtro-usuario-correo" id="txt-filtro-usuario-correo" class="form-control" placeholder="Correo">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 text-right">
+                            <a href="javascript:void(0)" id="btn-nuevo-usuario" class="btn btn-primary">Nuevo</a>
+                            <button type="button" id="btn-buscar-usuario" class="btn btn-secondary">Buscar</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table id="tbl-resultados-usuario" class="table table-striped table-bordered table-sm"></table>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section links{
+    <link rel="stylesheet" href="@Url.Content("~/Assets/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css")">
+}
+
+@section scripts{
+    <script src="@Url.Content("~/Assets/plugins/jquery-validation/jquery.validate.min.js")"></script>
+    <script src="@Url.Content("~/Assets/plugins/jquery-validation/additional-methods.min.js")"></script>
+    <script src="@Url.Content("~/Assets/plugins/sweetalert2/sweetalert2.min.js")"></script>
+    <script src="@Url.Content("~/Assets/dist/js/pages/mantenimiento-entidad-deportiva.js")"></script>
+    <script>
+        const tipoMantenimiento = @(ViewBag.TipoMantenimiento);
+        const nuevoTipoMantenimiento = @((int)Enumeracion.TipoMantenimiento.Nuevo);
+        const editarTipoMantenimiento = @((int)Enumeracion.TipoMantenimiento.Editar);
+        const entidadDeportivaId = @(Request.RequestContext.RouteData.Values["id"] != null ? Request.RequestContext.RouteData.Values["id"].ToString() : "null");
+        $(function () {
+            entidadDeportivaMantenimientoPage.init();
+        });
+    </script>
+}
