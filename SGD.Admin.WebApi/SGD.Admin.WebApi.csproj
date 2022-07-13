@@ -89,7 +89,9 @@
     <Compile Include="Controllers\Filters\AuthFilter.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\MenuSistemaController.cs" />
+    <Compile Include="Controllers\PerfilController.cs" />
     <Compile Include="Controllers\PerfilSistemaController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Controllers\UsuarioSistemaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

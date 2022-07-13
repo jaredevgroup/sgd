@@ -158,15 +158,47 @@ namespace SGD.DA
             return lista;
         }
 
-        public List<PerfilBE> ListarPerfilPorFlagActivoUsuario(SqlConnection cn, string usuarioId, bool? flagActivo)
+        public List<PerfilBE> ListarPerfilPorFlagActivoEntidadDeportiva(SqlConnection cn, int entidadDeportivaId, bool? flagActivo)
+        {
+            List<PerfilBE> lista = null;
+
+            using (SqlCommand cmd = new SqlCommand("dbo.usp_perfil_listar_x_flagactivo_entidaddeportiva", cn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@entidadDeportivaId", entidadDeportivaId);
+                cmd.Parameters.AddWithValue("@flagActivo", flagActivo.GetNullable());
+
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    if (dr.HasRows)
+                    {
+                        lista = new List<PerfilBE>();
+                        while (dr.Read())
+                        {
+                            PerfilBE item = new PerfilBE();
+                            item.PerfilId = dr.GetData<int>("PerfilId");
+                            item.Nombre = dr.GetData<string>("Nombre");
+                            item.FlagActivo = dr.GetData<bool>("FlagActivo");
+
+                            lista.Add(item);
+                        }
+                    }
+                }
+            }
+
+            return lista;
+        }
+
+        public List<PerfilBE> ListarPerfilPorFlagActivoUsuario(SqlConnection cn, int entidadDeportivaId, string usuarioId, bool? flagActivo)
         {
             List<PerfilBE> lista = null;
 
             using (SqlCommand cmd = new SqlCommand("dbo.usp_perfil_listar_x_flagactivo_usuario", cn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@flagActivo", flagActivo.GetNullable());
+                cmd.Parameters.AddWithValue("@entidadDeportivaId", entidadDeportivaId);
                 cmd.Parameters.AddWithValue("@usuarioId", usuarioId);
+                cmd.Parameters.AddWithValue("@flagActivo", flagActivo.GetNullable());
 
                 using (SqlDataReader dr = cmd.ExecuteReader())
                 {

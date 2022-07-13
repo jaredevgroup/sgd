@@ -6,14 +6,10 @@ using System.Threading.Tasks;
 
 namespace SGD.BE
 {
-    public class EntidadDeportivaBE
+    public class EntidadDeportivaMenuBE
     {
         public int EntidadDeportivaId { get; set; }
-        public string Codigo { get; set; }
-        public string Nombre { get; set; }
+        public int MenuId { get; set; }
         public bool FlagActivo { get; set; }
-
-        public List<MenuBE> ListaMenu { get; set; }
-        public List<PerfilBE> ListaPerfil { get; set; }
     }
 }

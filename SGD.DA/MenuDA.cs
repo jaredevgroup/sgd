@@ -300,5 +300,112 @@ namespace SGD.DA
 
         //    return lista;
         //}
+
+        public List<MenuBE> ListarMenuPorFlagActivoEntidadDeportiva(SqlConnection cn, int entidadDeportivaId, bool? flagActivo)
+        {
+            List<MenuBE> lista = null;
+
+            using (SqlCommand cmd = new SqlCommand("dbo.usp_menu_listar_x_flagactivo_entidaddeportiva", cn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@entidadDeportivaId", entidadDeportivaId);
+                cmd.Parameters.AddWithValue("@flagActivo", flagActivo.GetNullable());
+
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    if (dr.HasRows)
+                    {
+                        lista = new List<MenuBE>();
+                        while (dr.Read())
+                        {
+                            MenuBE item = new MenuBE();
+                            item.MenuId = dr.GetData<int>("MenuId");
+                            item.Nombre = dr.GetData<string>("Nombre");
+                            item.Url = dr.GetData<string>("Url");
+                            item.Icono = dr.GetData<string>("Icono");
+                            item.Orden = dr.GetData<int>("Orden");
+                            item.MenuIdPadre = dr.GetData<int?>("MenuIdPadre");
+                            item.FlagActivo = dr.GetData<bool>("FlagActivo");
+
+                            lista.Add(item);
+                        }
+                    }
+                }
+            }
+
+            return lista;
+        }
+
+        public List<MenuBE> ListarMenuPorFlagActivoMenuIdPadreEntidadDeportiva(SqlConnection cn, int entidadDeportivaId, bool? flagActivo, int? menuIdPadre)
+        {
+            List<MenuBE> lista = null;
+
+            using (SqlCommand cmd = new SqlCommand("dbo.usp_menu_listar_x_flagactivo_menuidpadre_entidaddeportiva", cn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@entidadDeportivaId", entidadDeportivaId);
+                cmd.Parameters.AddWithValue("@flagActivo", flagActivo.GetNullable());
+                cmd.Parameters.AddWithValue("@menuIdPadre", menuIdPadre.GetNullable());
+
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    if (dr.HasRows)
+                    {
+                        lista = new List<MenuBE>();
+                        while (dr.Read())
+                        {
+                            MenuBE item = new MenuBE();
+                            item.MenuId = dr.GetData<int>("MenuId");
+                            item.Nombre = dr.GetData<string>("Nombre");
+                            item.Url = dr.GetData<string>("Url");
+                            item.Icono = dr.GetData<string>("Icono");
+                            item.Orden = dr.GetData<int>("Orden");
+                            item.MenuIdPadre = dr.GetData<int?>("MenuIdPadre");
+                            item.FlagActivo = dr.GetData<bool>("FlagActivo");
+
+                            lista.Add(item);
+                        }
+                    }
+                }
+            }
+
+            return lista;
+        }
+
+        public List<MenuBE> ListarMenuPorFlagActivoEntidadDeportivaPerfil(SqlConnection cn, int entidadDeportivaId, int perfilId, bool? flagActivo)
+        {
+            List<MenuBE> lista = null;
+
+            using (SqlCommand cmd = new SqlCommand("dbo.usp_menu_listar_x_flagactivo_entidaddeportivaperfil", cn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@entidadDeportivaId", entidadDeportivaId);
+                cmd.Parameters.AddWithValue("@flagActivo", flagActivo.GetNullable());
+                cmd.Parameters.AddWithValue("@perfilId", perfilId);
+
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    if (dr.HasRows)
+                    {
+                        lista = new List<MenuBE>();
+                        while (dr.Read())
+                        {
+                            MenuBE item = new MenuBE();
+                            item.MenuId = dr.GetData<int>("MenuId");
+                            item.Nombre = dr.GetData<string>("Nombre");
+                            item.Url = dr.GetData<string>("Url");
+                            item.Icono = dr.GetData<string>("Icono");
+                            item.Orden = dr.GetData<int>("Orden");
+                            item.MenuIdPadre = dr.GetData<int?>("MenuIdPadre");
+                            item.FlagActivo = dr.GetData<bool>("FlagActivo");
+
+                            lista.Add(item);
+                        }
+                    }
+                }
+            }
+
+            return lista;
+        }
     }
 }

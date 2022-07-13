@@ -79,9 +79,10 @@ namespace SGD.Admin.WebApi.Controllers
         [AuthFilter]
         [HttpGet]
         [Route("obtener-entidaddeportiva/{entidadDeportivaId:int}")]
-        public IHttpActionResult ObtenerEntidadDeportiva(int entidadDeportivaId)
+        [Route("obtener-entidaddeportiva/{entidadDeportivaId:int}/{conListaPerfil:bool}/{conListaMenu:bool}/{conListaSubMenu:bool}")]
+        public IHttpActionResult ObtenerEntidadDeportiva(int entidadDeportivaId, bool conListaPerfil = false, bool conListaMenu = false, bool conListaSubMenu = false)
         {
-            EntidadDeportivaBE item = entidadDeportivaBL.ObtenerEntidadDeportiva(entidadDeportivaId, out string mensajeError);
+            EntidadDeportivaBE item = entidadDeportivaBL.ObtenerEntidadDeportiva(entidadDeportivaId, out string mensajeError, conListaPerfil, conListaMenu, conListaSubMenu);
 
             ResponseMessageCustom<EntidadDeportivaBE> response = new ResponseMessageCustom<EntidadDeportivaBE>
             {
@@ -105,6 +106,66 @@ namespace SGD.Admin.WebApi.Controllers
                 status = !string.IsNullOrEmpty(mensajeError) ? "error" : "success",
                 message = !string.IsNullOrEmpty(mensajeError) ? mensajeError : null,
                 result = existe
+            };
+
+            return Ok(response);
+        }
+
+        [AuthFilter]
+        [HttpPost]
+        [Route("guardar-lista-menu-por-entidaddeportiva")]
+        public IHttpActionResult GuardarEntidadDeportivaMenu(EntidadDeportivaBE registro)
+        {
+            HttpCookie cookie = HttpContext.Current.Request.Cookies.Get("currentSesion");
+            UsuarioSistemaBE usuario = new UsuarioSistemaBE(cookie.Value);
+
+            bool seGuardo = entidadDeportivaBL.GuardarEntidadDeportivaMenu(registro, usuario.UsuarioId, out string mensajeError);
+
+            ResponseMessageCustom<bool> response = new ResponseMessageCustom<bool>
+            {
+                status = seGuardo ? "success" : "error",
+                message = seGuardo ? "" : mensajeError,
+                result = seGuardo
+            };
+
+            return Ok(response);
+        }
+
+        [AuthFilter]
+        [HttpPost]
+        [Route("guardar-lista-perfil-por-entidaddeportiva")]
+        public IHttpActionResult GuardarEntidadDeportivaPerfil(EntidadDeportivaBE registro)
+        {
+            HttpCookie cookie = HttpContext.Current.Request.Cookies.Get("currentSesion");
+            UsuarioSistemaBE usuario = new UsuarioSistemaBE(cookie.Value);
+
+            bool seGuardo = entidadDeportivaBL.GuardarEntidadDeportivaPerfil(registro, usuario.UsuarioId, out string mensajeError);
+
+            ResponseMessageCustom<bool> response = new ResponseMessageCustom<bool>
+            {
+                status = seGuardo ? "success" : "error",
+                message = seGuardo ? "" : mensajeError,
+                result = seGuardo
+            };
+
+            return Ok(response);
+        }
+
+        [AuthFilter]
+        [HttpPost]
+        [Route("guardar-lista-perfilmenu-por-entidaddeportiva")]
+        public IHttpActionResult GuardarEntidadDeportivaPerfilMenu(EntidadDeportivaBE registro)
+        {
+            HttpCookie cookie = HttpContext.Current.Request.Cookies.Get("currentSesion");
+            UsuarioSistemaBE usuario = new UsuarioSistemaBE(cookie.Value);
+
+            bool seGuardo = entidadDeportivaBL.GuardarEntidadDeportivaPerfilMenu(registro, usuario.UsuarioId, out string mensajeError);
+
+            ResponseMessageCustom<bool> response = new ResponseMessageCustom<bool>
+            {
+                status = seGuardo ? "success" : "error",
+                message = seGuardo ? "" : mensajeError,
+                result = seGuardo
             };
 
             return Ok(response);

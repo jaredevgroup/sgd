@@ -216,7 +216,6 @@
         mostrarModalEditarListaPermisos: function (id) {
             perfilPage.default.perfilIdSeleccionado = id;
             bootbox.dialog(perfilPage.options.editarListaPermisosSwal);
-            
         },
         obtenerListaPermisos: function () {
             const { perfilIdSeleccionado } = perfilPage.default;
@@ -237,40 +236,12 @@
             let itemList = dataListaMenu.status == "success" ? dataListaMenu.result || [] : [];
             let itemListAsignado = (dataListaMenuAsignado.status == "success" ? dataListaMenuAsignado.result || [] : []).filter(x => x.FlagActivo);
             let itemListAsignadoIds = itemListAsignado.map(x => x.MenuId);
-            let menuHtml = perfilPage.methods.renderMenuToHtml(null, itemList);
+            let menuHtml = funciones.renderiCheckBoxToHtml(null, itemList, 'ListaSubMenu', 'menu', 'MenuId', 'Nombre');
             $('#div-lista-menu-content').html(menuHtml);
             Array.from($('input[type="checkbox"][name="menu"]')).forEach(x => $(x).prop("checked", itemListAsignadoIds.some(y => y == x.value)));
             $(':input[id^="chk-menu-"]').change(perfilPage.events.chkMenuChecked);
             $('#frm-editar-lista-permisos').validate(perfilPage.options.validate);
             funciones.loading('#modal-editar-lista-permisos .modal-content').Close();
-        },
-        renderMenuToHtml: function (item, listaSubMenu) {
-            let html = '';
-            let htmlList = '';
-
-            if (listaSubMenu != null) {
-                for (let x of listaSubMenu) {
-                    let xHtml = perfilPage.methods.renderMenuToHtml(x, x.ListaSubMenu);
-
-                    htmlList += xHtml;
-                }
-            }
-
-            if (item != null) {
-                html = `
-                    <div class="icheck-primary">
-                        <input type="checkbox" name="menu" id="chk-menu-${item.MenuId}" value="${item.MenuId}">
-                        <label for="chk-menu-${item.MenuId}">
-                            ${item.Nombre}
-                        </label>
-                        ${htmlList}
-                    </div>
-                `;
-            } else {
-                html = htmlList;
-            }
-
-            return html;
         },
         guardarAsignacionListaMenu: function () {
             let listaMenuSistema = Array.from($('input[type="checkbox"][name="menu"]')).map(x => Object.assign({}, { MenuId: x.value, FlagActivo: x.checked }));

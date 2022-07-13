@@ -42,6 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntidadDeportivaDA.cs" />
+    <Compile Include="EntidadDeportivaMenuDA.cs" />
+    <Compile Include="EntidadDeportivaPerfilDA.cs" />
+    <Compile Include="EntidadDeportivaPerfilMenuDA.cs" />
     <Compile Include="MenuDA.cs" />
     <Compile Include="MenuSistemaDA.cs" />
     <Compile Include="PerfilDA.cs" />

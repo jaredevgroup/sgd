@@ -146,10 +146,10 @@
             },
             onShow: function (e) {
                 $(e.currentTarget).attr("id", "modal-editar-lista-perfiles");
-                usuarioPage.methods.obtenerListaPerfiles();
+                entidadDeportivaMantenimientoPage.methods.obtenerListaPerfilesUsuario();
             },
             onHide: function (e) {
-                usuarioPage.default.usuarioIdSeleccionado = null;
+                entidadDeportivaMantenimientoPage.default.usuarioIdSeleccionado = null;
             },
             animateIn: 'zoomInDown',
             animateOut: 'zoomOutUp'
@@ -182,9 +182,9 @@
             let id = $(e.currentTarget).attr("data-item-id");
             usuarioPage.methods.mostrarModalEditarListaPerfiles(id);
         },
-        chkPerfilChecked: function (e) {
-            funciones.treeCheckBoxChecked(e.currentTarget);
-        }
+        //chkPerfilChecked: function (e) {
+        //    funciones.treeCheckBoxChecked(e.currentTarget);
+        //}
     },
     methods: {
         buscar: function () {
@@ -240,41 +240,42 @@
             let itemList = dataListaPerfil.status == "success" ? dataListaPerfil.result || [] : [];
             let itemListAsignado = (dataListaPerfilAsignado.status == "success" ? dataListaPerfilAsignado.result || [] : []).filter(x => x.FlagActivo);
             let itemListAsignadoIds = itemListAsignado.map(x => x.PerfilId);
-            let perfilHtml = usuarioPage.methods.renderPerfilToHtml(null, itemList);
+            let perfilHtml = funciones.renderiCheckBoxToHtml(null, itemList, null, 'perfil', 'PerfilId', 'Nombre');
+            //let perfilHtml = usuarioPage.methods.renderPerfilToHtml(null, itemList);
             $('#div-lista-perfil-content').html(perfilHtml);
             Array.from($('input[type="checkbox"][name="perfil"]')).forEach(x => $(x).prop("checked", itemListAsignadoIds.some(y => y == x.value)));
-            $(':input[id^="chk-perfil-"]').change(usuarioPage.events.chkPerfilChecked);
+            //$(':input[id^="chk-perfil-"]').change(usuarioPage.events.chkPerfilChecked);
             $('#frm-editar-lista-perfiles').validate(usuarioPage.options.validate);
             funciones.loading('#modal-editar-lista-perfiles .modal-content').Close();
         },
-        renderPerfilToHtml: function (item, listaSubPerfil) {
-            let html = '';
-            let htmlList = '';
+        //renderPerfilToHtml: function (item, listaSubPerfil) {
+        //    let html = '';
+        //    let htmlList = '';
 
-            if (listaSubPerfil != null) {
-                for (let x of listaSubPerfil) {
-                    let xHtml = usuarioPage.methods.renderPerfilToHtml(x, x.ListaSubPerfil);
+        //    if (listaSubPerfil != null) {
+        //        for (let x of listaSubPerfil) {
+        //            let xHtml = usuarioPage.methods.renderPerfilToHtml(x, x.ListaSubPerfil);
 
-                    htmlList += xHtml;
-                }
-            }
+        //            htmlList += xHtml;
+        //        }
+        //    }
 
-            if (item != null) {
-                html = `
-                    <div class="icheck-primary">
-                        <input type="checkbox" name="perfil" id="chk-perfil-${item.PerfilId}" value="${item.PerfilId}">
-                        <label for="chk-perfil-${item.PerfilId}">
-                            ${item.Nombre}
-                        </label>
-                        ${htmlList}
-                    </div>
-                `;
-            } else {
-                html = htmlList;
-            }
+        //    if (item != null) {
+        //        html = `
+        //            <div class="icheck-primary">
+        //                <input type="checkbox" name="perfil" id="chk-perfil-${item.PerfilId}" value="${item.PerfilId}">
+        //                <label for="chk-perfil-${item.PerfilId}">
+        //                    ${item.Nombre}
+        //                </label>
+        //                ${htmlList}
+        //            </div>
+        //        `;
+        //    } else {
+        //        html = htmlList;
+        //    }
 
-            return html;
-        },
+        //    return html;
+        //},
         guardarAsignacionListaPerfil: function () {
             let listaPerfilSistema = Array.from($('input[type="checkbox"][name="perfil"]')).map(x => Object.assign({}, { PerfilId: x.value, FlagActivo: x.checked }));
             let body = {

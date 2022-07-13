@@ -164,10 +164,12 @@
     <Content Include="Assets\dist\js\pages\inicio.js" />
     <Content Include="Assets\dist\js\pages\login.js" />
     <Content Include="Assets\dist\js\pages\mantenimiento-entidad-deportiva.js" />
+    <Content Include="Assets\dist\js\pages\mantenimiento-sgd-perfil.js" />
     <Content Include="Assets\dist\js\pages\mantenimiento-sgd-menu.js" />
     <Content Include="Assets\dist\js\pages\mantenimiento-menu.js" />
     <Content Include="Assets\dist\js\pages\mantenimiento-perfil.js" />
     <Content Include="Assets\dist\js\pages\mantenimiento-usuario.js" />
+    <Content Include="Assets\dist\js\pages\sgd-perfil.js" />
     <Content Include="Assets\dist\js\pages\sgd-menu.js" />
     <Content Include="Assets\dist\js\pages\menu.js" />
     <Content Include="Assets\dist\js\pages\perfil.js" />
@@ -2058,6 +2060,7 @@
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\PerfilController.cs" />
     <Compile Include="Controllers\SGDMenuController.cs" />
+    <Compile Include="Controllers\SGDPerfilController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -2246,6 +2249,8 @@
     <Content Include="Views\EntidadDeportiva\Mantenimiento.cshtml" />
     <Content Include="Views\SGDMenu\Mantenimiento.cshtml" />
     <Content Include="Views\SGDMenu\Index.cshtml" />
+    <Content Include="Views\SGDPerfil\Mantenimiento.cshtml" />
+    <Content Include="Views\SGDPerfil\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

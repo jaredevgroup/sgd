@@ -46,6 +46,7 @@
     <Compile Include="EntidadDeportivaBL.cs" />
     <Compile Include="MenuBL.cs" />
     <Compile Include="MenuSistemaBL.cs" />
+    <Compile Include="PerfilBL.cs" />
     <Compile Include="PerfilSistemaBL.cs" />
     <Compile Include="PlantillaBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

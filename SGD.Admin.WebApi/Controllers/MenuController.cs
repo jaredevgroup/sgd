@@ -188,5 +188,64 @@ namespace SGD.Admin.WebApi.Controllers
 
         //    return Ok(response);
         //}
+
+        [AuthFilter]
+        [HttpGet]
+        [Route("listar-menu-por-flagactivo-menuidpadre-entidaddeportiva/{entidadDeportivaId:int}")]
+        [Route("listar-menu-por-flagactivo-menuidpadre-entidaddeportiva/{entidadDeportivaId:int}/{flagActivo:bool}")]
+        [Route("listar-menu-por-flagactivo-menuidpadre-entidaddeportiva/{entidadDeportivaId:int}/{flagActivo:bool}/{conListaSubMenu:bool}")]
+        [Route("listar-menu-por-flagactivo-menuidpadre-entidaddeportiva/{entidadDeportivaId:int}/{menuIdPadre:int}")]
+        [Route("listar-menu-por-flagactivo-menuidpadre-entidaddeportiva/{entidadDeportivaId:int}/{menuIdPadre:int}/{conListaSubMenu:bool}")]
+        [Route("listar-menu-por-flagactivo-menuidpadre-entidaddeportiva/{entidadDeportivaId:int}/{flagActivo:bool}/{menuIdPadre:int}")]
+        [Route("listar-menu-por-flagactivo-menuidpadre-entidaddeportiva/{entidadDeportivaId:int}/{flagActivo:bool}/{menuIdPadre:int}/{conListaSubMenu:bool}")]
+        public IHttpActionResult ListarMenuPorFlagActivoMenuIdPadreEntidadDeportiva(int entidadDeportivaId, bool? flagActivo = null, int? menuIdPadre = null, bool conListaSubMenu = false)
+        {
+            List<MenuBE> result = menuBL.ListarMenuPorFlagActivoMenuIdPadreEntidadDeportiva(entidadDeportivaId, flagActivo, menuIdPadre, out string mensajeError, conListaSubMenu: conListaSubMenu);
+
+            ResponseMessageCustom<List<MenuBE>> response = new ResponseMessageCustom<List<MenuBE>>
+            {
+                status = result == null && !string.IsNullOrEmpty(mensajeError) ? "error" : "success",
+                message = result == null && !string.IsNullOrEmpty(mensajeError) ? mensajeError : null,
+                result = result
+            };
+
+            return Ok(response);
+        }
+
+        [AuthFilter]
+        [HttpGet]
+        [Route("listar-menu-por-flagactivo-entidaddeportiva/{entidadDeportivaId:int}")]
+        [Route("listar-menu-por-flagactivo-entidaddeportiva/{entidadDeportivaId:int}/{flagActivo:bool}")]
+        public IHttpActionResult ListarMenuPorFlagActivoEntidadDeportiva(int entidadDeportivaId, bool? flagActivo = null)
+        {
+            List<MenuBE> result = menuBL.ListarMenuPorFlagActivoEntidadDeportiva(entidadDeportivaId, flagActivo, out string mensajeError);
+
+            ResponseMessageCustom<List<MenuBE>> response = new ResponseMessageCustom<List<MenuBE>>
+            {
+                status = result == null && !string.IsNullOrEmpty(mensajeError) ? "error" : "success",
+                message = result == null && !string.IsNullOrEmpty(mensajeError) ? mensajeError : null,
+                result = result
+            };
+
+            return Ok(response);
+        }
+
+        [AuthFilter]
+        [HttpGet]
+        [Route("listar-menu-por-flagactivo-entidaddeportivaperfil/{entidadDeportivaId:int}/{perfilId:int}")]
+        [Route("listar-menu-por-flagactivo-entidaddeportivaperfil/{entidadDeportivaId:int}/{perfilId:int}/{flagActivo:bool}")]
+        public IHttpActionResult ListarMenuPorFlagActivoEntidadDeportivaPerfil(int entidadDeportivaId, int perfilId, bool? flagActivo = null)
+        {
+            List<MenuBE> result = menuBL.ListarMenuPorFlagActivoEntidadDeportivaPerfil(entidadDeportivaId, perfilId, flagActivo, out string mensajeError);
+
+            ResponseMessageCustom<List<MenuBE>> response = new ResponseMessageCustom<List<MenuBE>>
+            {
+                status = result == null && !string.IsNullOrEmpty(mensajeError) ? "error" : "success",
+                message = result == null && !string.IsNullOrEmpty(mensajeError) ? mensajeError : null,
+                result = result
+            };
+
+            return Ok(response);
+        }
     }
 }

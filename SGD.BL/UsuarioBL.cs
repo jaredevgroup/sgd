@@ -366,12 +366,13 @@ namespace SGD.BL
 
                                 UsuarioPerfilBE value = new UsuarioPerfilBE
                                 {
+                                    EntidadDeportivaId = registro.EntidadDeportivaId,
                                     UsuarioId = registro.UsuarioId,
                                     PerfilId = item.PerfilId,
                                     FlagActivo = item.FlagActivo
                                 };
 
-                                //seGuardo = usuarioPerfilDA.GuardarUsuarioPerfil(cn, value, usuarioIdModificacion, tran);
+                                seGuardo = usuarioPerfilDA.GuardarUsuarioPerfil(cn, value, usuarioIdModificacion, tran);
 
                                 if (!seGuardo) break;
                             }

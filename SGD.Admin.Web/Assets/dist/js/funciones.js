@@ -62,6 +62,39 @@
         let checkedParent = cantidadHermanosCheckeados > 0;
         $(el).parent().parent().find('> input[type="checkbox"]').prop('checked', checkedParent);
     },
+    renderiCheckBoxToHtml: function (item, lista, campoSubLista, inputName, campoValor, campoTexto, botones) {
+        let html = '';
+        let htmlList = '';
+
+        if (lista != null) {
+            for (let x of lista) {
+                let subLista = campoSubLista == null ? null : x[campoSubLista] == undefined ? null : x[campoSubLista];
+                let xHtml = funciones.renderiCheckBoxToHtml(x, subLista, campoSubLista, inputName, campoValor, campoTexto, botones);
+
+                htmlList += xHtml;
+            }
+        }
+
+        if (item != null) {
+            let botonesHtml = (botones == null ? [] : Array.isArray(botones) ? botones.map(x => $(x).attr("data-item-id", item[campoValor]).prop('outerHTML')) : []).join('&nbsp;');
+
+            html = `
+                    <div class="icheck-primary">
+                        <input type="checkbox" name="${inputName}" id="chk-${inputName}-${item[campoValor]}" value="${item[campoValor]}">
+                        <label for="chk-${inputName}-${item[campoValor]}">
+                            ${item[campoTexto]}
+                            &nbsp;
+                            ${botonesHtml}
+                        </label>
+                        ${htmlList}
+                    </div>
+                `;
+        } else {
+            html = htmlList;
+        }
+
+        return html;
+    },
     cerrarSesion: function () {
         document.cookie = `currentSesion=;expires=${(new Date()).toGMTString()};domain=${domainCookie};`;
         location.reload();

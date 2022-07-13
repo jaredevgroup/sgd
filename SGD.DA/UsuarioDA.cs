@@ -197,7 +197,7 @@ namespace SGD.DA
                 cmd.Parameters.AddWithValue("@tipoMantenimiento", tipoMantenimiento);
                 cmd.Parameters.AddWithValue("@entidadDeportivaId", registro.EntidadDeportivaId);
                 cmd.Parameters.AddWithValue("@usuarioId", registro.UsuarioId);
-                cmd.Parameters.AddWithValue("@contraseña", registro.ObtenerContraseñaCodificada());
+                cmd.Parameters.Add(new SqlParameter { ParameterName = "@contraseña", SqlDbType = SqlDbType.VarBinary, Size = 50, Value = registro.ObtenerContraseñaCodificada().GetNullable() });
                 cmd.Parameters.AddWithValue("@correo", registro.Correo);
                 cmd.Parameters.AddWithValue("@usuarioIdModificacion", usuarioIdModificacion);
                 int filasAfectadas = cmd.ExecuteNonQuery();

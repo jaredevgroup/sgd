@@ -45,9 +45,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntidadDeportivaBE.cs" />
+    <Compile Include="EntidadDeportivaMenuBE.cs" />
+    <Compile Include="EntidadDeportivaPerfilBE.cs" />
+    <Compile Include="EntidadDeportivaPerfilMenuBE.cs" />
     <Compile Include="MenuBE.cs" />
     <Compile Include="MenuSistemaBE.cs" />
     <Compile Include="PerfilBE.cs" />
+    <Compile Include="PerfilMenuBE.cs" />
     <Compile Include="PerfilSistemaBE.cs" />
     <Compile Include="PerfilSistemaMenuSistemaBE.cs" />
     <Compile Include="PlantillaBE.cs" />

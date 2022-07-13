@@ -190,25 +190,6 @@ namespace SGD.BL
             return lista;
         }
 
-        private List<MenuBE> ListarMenuPorFlagActivoMenuIdPadreConSubMenu(SqlConnection cn, MenuBE item, List<MenuBE> lista, bool? flagActivo)
-        {
-            if (item != null)
-            {
-                item.ListaSubMenu = menuDA.ListarMenuPorFlagActivoMenuIdPadre(cn, flagActivo, item.MenuId);
-                lista = item.ListaSubMenu;
-            }
-
-            if (lista != null)
-            {
-                foreach (MenuBE x in lista)
-                {
-                    x.ListaSubMenu = ListarMenuPorFlagActivoMenuIdPadreConSubMenu(cn, x, x.ListaSubMenu, flagActivo);
-                }
-            }
-
-            return lista;
-        }
-
         //public List<MenuBE> ListarMenuPorFlagActivoPerfil(int perfilId, bool? flagActivo, out string mensajeError)
         //{
         //    List<MenuBE> lista = null;
@@ -229,5 +210,75 @@ namespace SGD.BL
 
         //    return lista;
         //}
+
+        public List<MenuBE> ListarMenuPorFlagActivoEntidadDeportiva(int entidadDeportivaId, bool? flagActivo, out string mensajeError)
+        {
+            List<MenuBE> lista = null;
+            mensajeError = null;
+
+            using (SqlConnection cn = new SqlConnection(cnString))
+            {
+                try
+                {
+                    cn.Open();
+                    lista = menuDA.ListarMenuPorFlagActivoEntidadDeportiva(cn, entidadDeportivaId, flagActivo);
+                    cn.Close();
+                }
+                catch (SqlException ex) { mensajeError = ex.Message; }
+                catch (Exception ex) { mensajeError = ex.Message; }
+                finally { if (cn.State == ConnectionState.Open) cn.Close(); }
+            }
+
+            return lista;
+        }
+
+        public List<MenuBE> ListarMenuPorFlagActivoMenuIdPadreEntidadDeportiva(int entidadDeportivaId, bool? flagActivo, int? menuIdPadre, out string mensajeError, bool conListaSubMenu = false)
+        {
+            List<MenuBE> lista = null;
+            mensajeError = null;
+
+            using (SqlConnection cn = new SqlConnection(cnString))
+            {
+                try
+                {
+                    cn.Open();
+                    lista = menuDA.ListarMenuPorFlagActivoMenuIdPadreEntidadDeportiva(cn, entidadDeportivaId, flagActivo, menuIdPadre);
+                    if (conListaSubMenu)
+                    {
+                        if (lista != null)
+                        {
+                            if (conListaSubMenu) lista = ListarMenuPorFlagActivoMenuIdPadreEntidadDeportivaConSubMenu(cn, entidadDeportivaId, null, lista, flagActivo);
+                        }
+                    }
+                    cn.Close();
+                }
+                catch (SqlException ex) { mensajeError = ex.Message; }
+                catch (Exception ex) { mensajeError = ex.Message; }
+                finally { if (cn.State == ConnectionState.Open) cn.Close(); }
+            }
+
+            return lista;
+        }
+
+        public List<MenuBE> ListarMenuPorFlagActivoEntidadDeportivaPerfil(int entidadDeportivaId, int perfilId, bool? flagActivo, out string mensajeError)
+        {
+            List<MenuBE> lista = null;
+            mensajeError = null;
+
+            using (SqlConnection cn = new SqlConnection(cnString))
+            {
+                try
+                {
+                    cn.Open();
+                    lista = menuDA.ListarMenuPorFlagActivoEntidadDeportivaPerfil(cn, entidadDeportivaId, perfilId, flagActivo);
+                    cn.Close();
+                }
+                catch (SqlException ex) { mensajeError = ex.Message; }
+                catch (Exception ex) { mensajeError = ex.Message; }
+                finally { if (cn.State == ConnectionState.Open) cn.Close(); }
+            }
+
+            return lista;
+        }
     }
 }
