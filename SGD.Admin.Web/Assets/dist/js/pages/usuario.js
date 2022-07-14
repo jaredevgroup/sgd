@@ -146,10 +146,10 @@
             },
             onShow: function (e) {
                 $(e.currentTarget).attr("id", "modal-editar-lista-perfiles");
-                entidadDeportivaMantenimientoPage.methods.obtenerListaPerfilesUsuario();
+                usuarioPage.methods.obtenerListaPerfiles();
             },
             onHide: function (e) {
-                entidadDeportivaMantenimientoPage.default.usuarioIdSeleccionado = null;
+                usuarioPage.default.usuarioIdSeleccionado = null;
             },
             animateIn: 'zoomInDown',
             animateOut: 'zoomOutUp'
